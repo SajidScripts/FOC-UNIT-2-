@@ -1,4 +1,3 @@
-import { useEffect, useRef } from "react";
 import katex from "katex";
 
 interface MathProps {
@@ -7,18 +6,18 @@ interface MathProps {
 }
 
 const Math = ({ tex, display = false }: MathProps) => {
-  const ref = useRef<HTMLSpanElement>(null);
+  const html = katex.renderToString(tex, {
+    displayMode: display,
+    throwOnError: false,
+    output: "html",
+  });
 
-  useEffect(() => {
-    if (ref.current) {
-      katex.render(tex, ref.current, {
-        displayMode: display,
-        throwOnError: false,
-      });
-    }
-  }, [tex, display]);
-
-  return <span ref={ref} />;
+  return (
+    <span
+      dangerouslySetInnerHTML={{ __html: html }}
+      style={display ? { display: "block", textAlign: "center" } : undefined}
+    />
+  );
 };
 
 export default Math;
