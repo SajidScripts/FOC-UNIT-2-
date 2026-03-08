@@ -1,0 +1,180 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "katex/dist/katex.min.css";
+
+@layer base {
+  :root {
+    --background: 220 20% 97%;
+    --foreground: 220 25% 10%;
+    --card: 0 0% 100%;
+    --card-foreground: 220 25% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 25% 10%;
+    --primary: 215 80% 48%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 35 90% 55%;
+    --secondary-foreground: 35 95% 15%;
+    --muted: 220 15% 92%;
+    --muted-foreground: 220 10% 45%;
+    --accent: 160 50% 42%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 72% 55%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 220 15% 88%;
+    --input: 220 15% 88%;
+    --ring: 215 80% 48%;
+    --radius: 0.75rem;
+
+    /* Custom tokens */
+    --exam-alert: 0 85% 60%;
+    --exam-alert-foreground: 0 0% 100%;
+    --formula-bg: 215 40% 96%;
+    --formula-border: 215 50% 80%;
+    --step-cloud: 200 60% 94%;
+    --step-cloud-border: 200 50% 78%;
+    --step-concept: 270 40% 95%;
+    --step-concept-border: 270 40% 78%;
+    --step-answer: 140 40% 94%;
+    --step-answer-border: 140 40% 72%;
+    --step-memory: 35 80% 94%;
+    --step-memory-border: 35 70% 72%;
+    --step-mistake: 0 60% 95%;
+    --step-mistake-border: 0 50% 78%;
+    --repeated-badge: 0 80% 55%;
+    --repeated-badge-foreground: 0 0% 100%;
+    --table-header: 215 60% 30%;
+    --table-header-foreground: 0 0% 100%;
+    --table-stripe: 215 20% 96%;
+    --nav-active: 215 80% 48%;
+    --hero-gradient-from: 215 80% 48%;
+    --hero-gradient-to: 260 60% 55%;
+    --section-number: 215 80% 48%;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222 30% 8%;
+    --foreground: 210 20% 92%;
+    --card: 222 25% 12%;
+    --card-foreground: 210 20% 92%;
+    --popover: 222 25% 12%;
+    --popover-foreground: 210 20% 92%;
+    --primary: 215 80% 55%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 35 80% 55%;
+    --secondary-foreground: 35 95% 10%;
+    --muted: 222 20% 18%;
+    --muted-foreground: 220 10% 55%;
+    --accent: 160 50% 45%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 222 20% 20%;
+    --input: 222 20% 20%;
+    --ring: 215 80% 55%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Source Serif 4', 'Georgia', serif;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+  }
+}
+
+@layer components {
+  .step-cloud {
+    @apply rounded-lg p-5 my-4 border-l-4;
+    background: hsl(var(--step-cloud));
+    border-color: hsl(var(--step-cloud-border));
+  }
+  .step-concept {
+    @apply rounded-lg p-5 my-4 border-l-4;
+    background: hsl(var(--step-concept));
+    border-color: hsl(var(--step-concept-border));
+  }
+  .step-answer {
+    @apply rounded-lg p-5 my-4 border-l-4;
+    background: hsl(var(--step-answer));
+    border-color: hsl(var(--step-answer-border));
+  }
+  .step-memory {
+    @apply rounded-lg p-5 my-4 border-l-4;
+    background: hsl(var(--step-memory));
+    border-color: hsl(var(--step-memory-border));
+  }
+  .step-mistake {
+    @apply rounded-lg p-5 my-4 border-l-4;
+    background: hsl(var(--step-mistake));
+    border-color: hsl(var(--step-mistake-border));
+  }
+  .formula-box {
+    @apply rounded-lg p-4 my-3 text-center border;
+    background: hsl(var(--formula-bg));
+    border-color: hsl(var(--formula-border));
+  }
+  .exam-alert {
+    @apply rounded-lg p-4 my-4 font-semibold text-center;
+    background: hsl(var(--exam-alert));
+    color: hsl(var(--exam-alert-foreground));
+  }
+  .repeated-badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold;
+    background: hsl(var(--repeated-badge));
+    color: hsl(var(--repeated-badge-foreground));
+  }
+  .study-table {
+    @apply w-full border-collapse rounded-lg overflow-hidden my-4;
+  }
+  .study-table th {
+    @apply px-4 py-3 text-left text-sm font-bold;
+    background: hsl(var(--table-header));
+    color: hsl(var(--table-header-foreground));
+  }
+  .study-table td {
+    @apply px-4 py-3 text-sm border-b;
+    border-color: hsl(var(--border));
+  }
+  .study-table tr:nth-child(even) td {
+    background: hsl(var(--table-stripe));
+  }
+  .question-card {
+    @apply rounded-xl p-6 mb-8 border shadow-sm;
+    background: hsl(var(--card));
+    border-color: hsl(var(--border));
+  }
+  .nav-link {
+    @apply px-3 py-2 rounded-md text-sm transition-colors cursor-pointer;
+  }
+  .nav-link:hover {
+    background: hsl(var(--muted));
+  }
+  .nav-link.active {
+    background: hsl(var(--nav-active));
+    color: hsl(var(--primary-foreground));
+  }
+}
